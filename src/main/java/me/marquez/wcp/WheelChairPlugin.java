@@ -35,6 +35,7 @@ public class WheelChairPlugin extends JavaPlugin implements Listener {
     private double offsetY;
     private double sizeX;
     private double sizeZ;
+    private double speed;
 
     @Override
     public void onEnable() {
@@ -44,6 +45,7 @@ public class WheelChairPlugin extends JavaPlugin implements Listener {
         offsetY = getConfig().getDouble("WheelChair.offset-Y");
         sizeX = getConfig().getDouble("WheelChair.size.X");
         sizeZ = getConfig().getDouble("WheelChair.size.Z");
+        speed = getConfig().getDouble("WheelChair.speed");
 
         getCommand("wcp").setExecutor(this);
         getServer().getPluginManager().registerEvents(this, this);
@@ -166,7 +168,6 @@ public class WheelChairPlugin extends JavaPlugin implements Listener {
     private void moveWC(Player player, int entityId, float side, float forward) {
         EntityArmorStand as = (EntityArmorStand)entityMap.get(entityId);
         Vector direction = as.getBukkitEntity().getLocation().getDirection();
-        double speed = 0.2D;
         if(forward != 0) {
             Vector vector = direction.multiply(speed).multiply(forward);
             double x = as.locX()+vector.getX(), y = as.locY()-offsetY, z = as.locZ()+vector.getZ();

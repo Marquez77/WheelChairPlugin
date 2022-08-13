@@ -5,3 +5,4 @@ WheelChair:
   size:
     X: 2
     Z: 2
+  speed: 0.2

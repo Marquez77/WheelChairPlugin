@@ -1,0 +1,7 @@
+WheelChair:
+  Type: DIAMOND_SWORD
+  CustomModelData: 3
+  offset-Y: -0.5
+  size:
+    X: 2
+    Z: 2
